@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  height: 70px;
+  height: 90px;
   top: 0;
   padding: 0 2rem;
   background: white;
@@ -73,6 +73,8 @@
   opacity: 0;
 }
 
+/* styles/Header.module.css */
+
 .hamburger span {
   display: block;
   width: 33px;
@@ -82,17 +84,21 @@
   background: #cdcdcd;
   border-radius: 3px;
   z-index: 1;
-  transform-origin: 4px;
+  transform-origin: center;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
-.hamburger span:first-child {
-  transform-origin: 0% 0%;
+.hamburger.active span:first-child {
+  transform: rotate(45deg);
 }
 
-.hamburger span:nth-last-child(2) {
-  transform-origin: 0% 100%;
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-last-child(2) {
+  transform: rotate(-45deg);
 }
 
 .nav.open {

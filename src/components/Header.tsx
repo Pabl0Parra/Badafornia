@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "../../styles/Header.module.css";
 
@@ -7,12 +8,16 @@ export const Header = () => {
   const [activeLink, setActiveLink] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const links = ["Home", "Shop", "Contact"];
+  const [isActive, setIsActive] = useState(false);
 
   const Hamburger = () => {
     return (
       <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className={styles.hamburger}
+        onClick={() => {
+          setMenuOpen(!menuOpen);
+          setIsActive(!isActive);
+        }}
+        className={`${styles.hamburger} ${isActive ? styles.active : ""}`}
       >
         <span></span>
         <span></span>
@@ -29,7 +34,13 @@ export const Header = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 3 }}
       >
-        Logo
+        <Image
+          src="./badafornia_logo.png" // Path to your image
+          alt="Badafornia Logo"
+          width={100} // desired image width
+          height={70} // desired image height
+          unoptimized={true} // set true for animated images
+        />
       </motion.div>
 
       <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
