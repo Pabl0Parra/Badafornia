@@ -35,11 +35,11 @@ export const Header = () => {
         transition={{ duration: 3 }}
       >
         <Image
-          src="./badafornia_logo.png" // Path to your image
+          src="./badafornia_logo.png"
           alt="Badafornia Logo"
-          width={100} // desired image width
-          height={70} // desired image height
-          unoptimized={true} // set true for animated images
+          width={100}
+          height={70}
+          unoptimized={true}
         />
       </motion.div>
 
