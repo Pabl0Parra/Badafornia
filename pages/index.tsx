@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000); // Change this to control how long the splash screen should be displayed
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
