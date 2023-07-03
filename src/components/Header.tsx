@@ -7,7 +7,7 @@ import styles from "../../styles/Header.module.css";
 export const Header = () => {
   const [activeLink, setActiveLink] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const links = ["Home", "Shop", "Contact"];
+  const links = ["Contact", "Home", "Shop"];
   const [isActive, setIsActive] = useState(false);
 
   const Hamburger = () => {
@@ -46,7 +46,7 @@ export const Header = () => {
       <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
         {links.map((link, index) => (
           <Link href={`/${link.toLowerCase()}`} key={index}>
-            <motion.div
+            <motion.a
               onClick={() => {
                 setActiveLink(index);
                 setMenuOpen(false);
@@ -59,7 +59,7 @@ export const Header = () => {
               transition={{ delay: index * 0.2, duration: 0.5 }}
             >
               {link}
-            </motion.div>
+            </motion.a>
           </Link>
         ))}
       </nav>
